@@ -1,0 +1,21 @@
+name: Mensaje Motivacional
+
+on:
+  schedule:
+    -cron: "0 9 * * 1"
+
+jobs:
+  monday-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Mensaje motivacional
+        run: |
+          echo "Es lunes,¡solo quedan 4 días para el viernes!"
+        
+      - name: Últimos 5 commits
+        run: |
+          git log -5 --oneline
