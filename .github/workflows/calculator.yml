@@ -1,0 +1,34 @@
+name: Calculator
+
+on:
+  workflow_dispatch:
+    inputs:
+      number1:
+        description: "Primer número"
+        required: true
+        type: number
+      number2:
+        description: "Segundo número"
+        required: true
+        type: number
+
+jobs:
+  calculator:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Calcular resultados
+        run: |
+          a=${{ inputs.number1 }}
+          b=${{ inputs.number2 }}
+
+          echo "Resultados:"
+          echo "Suma: $((a + b))"
+          echo "Resta: $((a - b))"
+          echo "Multiplicación: $((a * b))"
+
+          if [ "$b" -ne 0 ]; then
+            echo "División: $((a / b))"
+          else
+            echo "Error: No se puede dividir entre 0."
+          fi
