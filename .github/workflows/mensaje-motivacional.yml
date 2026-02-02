@@ -3,6 +3,7 @@ name: Mensaje Motivacional
 on:
   schedule:
     - cron: "26 13 * * 1"
+  workflow_dispatch:
 
 jobs:
   monday-job:
